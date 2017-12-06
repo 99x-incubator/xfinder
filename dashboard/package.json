@@ -1,0 +1,49 @@
+{
+  "name": "ADFinder",
+  "private": true,
+  "version": "0.0.1",
+  "description": "ADFinder @99xTechnology",
+  "repository": "https://bitbucket.org/99x-intern/activedirectoryusers",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/angular/material/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "activedirectory": "^0.7.2",
+    "angular": "^1.5.7",
+    "angular-datatables": "^0.5.4",
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-router-browserify": "0.0.2",
+    "angular-xeditable": "^0.1.12",
+    "body-parser": "^1.15.1",
+    "bootstrap": "^3.3.6",
+    "bootswatch": "^3.3.6",
+    "browserify": "^13.0.1",
+    "datatables": "1.10.12",
+    "datatables-buttons": "1.0.3",
+    "datatables.net": "^1.10.12",
+    "deep-diff": "^0.3.4",
+    "express": "^4.13.4",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "jquery": "2.2.0",
+    "jsonwebtoken": "^7.0.1",
+    "mongoose": "^4.4.20",
+    "mongoose-history": "^0.4.2",
+    "nodemailer": "^2.5.0",
+    "sweetalert": "^1.1.3",
+    "underscore": "^1.8.3",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.9",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.8"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

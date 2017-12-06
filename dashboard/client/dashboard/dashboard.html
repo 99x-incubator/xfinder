@@ -1,0 +1,30 @@
+<div ng-app="ADFinder" ng-controller="dashboardCtrl as vm">
+
+        <!--Angular table-->
+        <!--<table datatable="ng" dt-options="dashboardCtrl.dtOptions" dt-column-defs="dashboardCtrl.dtColumnDefs" class="row-border hover">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th>Account Name</th>-->
+                <!--<th>First Name</th>-->
+                <!--<th>Last Name</th>-->
+                <!--<th>Email</th>.-->
+                <!--<th>Last Logon</th>-->
+                <!--<th>Group</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+                <!--<tr ng-repeat="user in users">-->
+                    <!--<td>{{ user.SAMAccountName }}</td>-->
+                    <!--<td>{{ user.FirstName }}</td>-->
+                    <!--<td>{{ user.LastName }}</td>-->
+                    <!--<td>{{ user.Email }}</td>-->
+                    <!--<td>{{ user.LastLogon | date:'medium' }}</td>-->
+                    <!--<td>{{ user.Group }}</td>-->
+                <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+
+        <!--Generated from datatable-->
+        <table class="table table-hover " datatable="" dt-options="vm.dtOptions" dt-columns="vm.dtColumns"></table>
+
+</div>

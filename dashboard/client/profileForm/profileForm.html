@@ -1,0 +1,101 @@
+<div ng-app="ADFinder" ng-controller="profileFormCtrl">
+	    <h1>Profile info 
+			<input type="button" data-toggle="modal" data-target="#myModal"class="btn btn-primary" value="+" ng-show="saveBtnVisibility" >
+	    	<input type="button" class="btn btn-primary" value="Edit" ng-show="edtVisibility" ng-click="enableEditing()">
+	    	<input type="button" class="btn btn-primary" value="History" ng-show="edtVisibility" ng-click="viewHistory()">
+	    </h1>
+	  	<hr>
+	      <!-- edit form column -->
+	      <div class="col-md-9">
+	        <form class="form-horizontal" role="form" ng-submit="saveChanges(vals)">
+	          <div class="form-group" ng-repeat="(key, value) in fields">
+	            <label class="col-md-3">{{key}}</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="text" ng-value="value" id={{key}} ng-disabled="true">
+	            </div>
+	          </div>
+
+	          <div class="form-group" ng-repeat="(key, value) in commonSpecFields">
+	            <label class="col-md-3" ng-if="value.values.type=='template'">{{value.key}}</label>
+	            <div class="col-lg-8">		            
+		            <select class="form-control" ng-if="value.values.type=='template'" id={{value.key}} ng-disabled="edtVisibility">
+		              	<option ng-repeat="value in loadedCommonTemplateOptions[$index]['options']" ng-value="value._id" ng-selected="loadedCommonTemplateOptions[$parent.$index]['selected']==$index">{{ value }}
+		              	</option>
+		            </select> 
+		            <span ng-show="false" ng-if="value.values.type=='template'" ng-init="invokeCommon(value.values.value, value.key)"> {{ value.values }}</span>
+	            </div>
+	          </div>
+
+	          <div class="form-group" ng-repeat="(key, value) in commonSpecFields">
+	            <label class="col-md-3" ng-if="value.values.type=='text'">{{value.key}}</label>
+	            <div class="col-lg-8">
+					<input class="form-control" type="text" ng-if="value.values.type=='text'" ng-value="value.values.value" id={{value.key}} ng-disabled="edtVisibility">
+	            </div>
+	          </div>
+	          <hr />
+	          <div class="form-group" ng-repeat="(key, value) in specDropDownFields">
+	            <label class="col-md-3">{{ value.name }}</label>
+	            <div class="col-lg-8"> 
+		            <span ng-show="false" ng-if="value.data.type=='template'" ng-init="invoke(value.data.value, value.name)"> </span>
+		            <select class="form-control" ng-if="value.data.type=='template'" id={{value.name}} ng-disabled="edtVisibility">
+		              	<option ng-repeat="value in loadedTemplateOptions[$index]['options']" ng-value="value._id" ng-selected="loadedTemplateOptions[$parent.$index]['selected']==$index">{{ value }}
+		              	</option>
+		            </select>
+	            </div>
+	          </div>
+
+	          <div class="form-group" ng-repeat="(key, value) in specTextFields">
+	            <label class="col-md-3">{{value.name}}</label>
+	            <div class="col-lg-8">
+		            <input class="form-control" type="text" ng-if="value.data.type=='text'" ng-value="value.data.value" id={{value.name}} ng-disabled="edtVisibility">
+	            </div>
+	          </div>
+	          
+	          <div class="form-group">
+	            <label class="col-md-3"></label>
+	            <div class="col-md-8">
+	              <input type="submit" id="asd" class="btn btn-primary" value="Save Changes"  ng-show="saveBtnVisibility">
+	              
+	              <span></span>
+	              <input type="reset" class="btn btn-default" value="Cancel" ng-show="saveBtnVisibility" ng-click="cancelEditing()">
+	            </div>
+	          </div>
+	        </form>
+	      </div>
+	<hr>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Enter the field name</h4>
+      </div>
+      <div class="modal-body">
+      	Field name 
+        <input class="form-control" type="text" placeholder="Enter field name" ng-model="field">
+        <br/>
+        Template type
+        <select class="form-control" ng-model="selection" ng-change="templateSelectedValue()">
+        	<option>text field</option>
+        	<option>custom template</option>
+        </select>
+        <span ng-show="typeTextVisibility">Default value</span>
+        <input type="text" class="form-control"
+        ng-show="typeTextVisibility" ng-model="fieldValue">
+        <span ng-show="typeTemplateVisibility">Template</span>
+        <select class="form-control" ng-model="template" ng-show="typeTemplateVisibility">
+      		<option value={{template._id}} ng-repeat="template in templateNames">{{ template.name }}</option>
+      	</select>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="addField()">Add field</button>
+      </div>
+    </div>
+
+  </div>
+</div>

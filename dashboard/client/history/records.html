@@ -1,0 +1,27 @@
+<div ng-app="ADFinder" ng-controller="recordsCtrl">
+        <h1>Profile history</h1>
+        <hr>
+          <!-- edit form column -->
+          <div class="col-md-9">
+            <form class="form-horizontal" role="form">
+              <div class="form-group" ng-repeat="(key, value) in fields">
+                <label class="col-md-3">{{key}}</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" ng-value="value" id={{key}} ng-disabled="edtVisibility">
+                </div>
+              </div>
+              <div class="form-group" ng-repeat="(key, value) in specFields">
+                <label class="col-md-3">{{key}}</label>
+                <div class="col-lg-8">
+                  <select class="form-control" id={{key}} 
+                  ng-model="value"
+                  ng-disabled="edtVisibility">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+    <hr>
+</div>

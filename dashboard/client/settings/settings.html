@@ -1,0 +1,71 @@
+<div ng-app="ADFinder" ng-controller="settingsCtrl">
+	    <h1>Settings</h1>
+	  	<hr>
+		<ol class="breadcrumb" style="margin-bottom: 5px;">
+		  <li><a ng-href="#/settings/templates" class="active">Templates</a></li>
+		</ol>
+	      <!-- edit form column -->
+	      <div class="col-md-9">
+		    <h3>Common field</h3>
+		    <br/>
+	        <form class="form-horizontal" role="form" ng-submit="saveChanges()">
+	          <div class="form-group">
+	            <label class="col-md-3"> Field name </label>
+	            <div class="col-lg-8">
+			        <input class="form-control" type="text" placeholder="Enter field name" ng-model="field">
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3"> Template type </label>
+	            <div class="col-lg-8">
+				    <select class="form-control" ng-model="selection" ng-change="templateSelectedValue()">
+			        	<option>text field</option>
+			        	<option>custom template</option>
+			        </select>
+	            </div>
+	          </div>
+	          <div class="form-group" ng-show="typeTextVisibility">
+	            <label class="col-md-3"> Default value </label>
+	            <div class="col-lg-8">
+				    <input type="text" class="form-control" ng-model="fieldValue">
+	            </div>
+	          </div>
+	          <div class="form-group" ng-show="typeTemplateVisibility">
+	            <label class="col-md-3"> Template </label>
+	            <div class="col-lg-8">
+			      	<select ng-model="template" class="form-control">
+	              		<option value={{template._id}} ng-repeat="template in templateNames">{{ template.name }}
+	              		</option>
+	              	</select>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3"></label>
+	            <div class="col-md-8">
+	              <input type="submit" id="asd" class="btn btn-primary" value="Save Changes">
+	              <input type="reset" class="btn btn-default" value="Reset">
+	              <span ng-show="error" class="help-block">*please fill in all fields</span>
+	            </div>
+	          </div>
+	        </form>
+	      </div>
+	      <br/>
+	      <div class="col-lg-12 md-8 sm-8">
+					<h3>Email</h3>
+					<br/>
+	        <form class="form-horizontal" role="form" ng-submit="saveChanges(vals)">
+	          <div class="form-group">
+	            <label class="col-lg-2 md-6 sm-12" style="padding-top:10px;">Enable email</label>
+			        <input class="form-control" style="width:25px;" type="radio" name="emailStatus" ng-model="emailStatus" ng-value="true">
+			      </div>
+			      <div class="form-group">
+			        <label class="col-lg-2 md-6 sm-12" style="padding-top:10px;">Disable email</label>
+			        <input class="form-control" style="width:25px;" type="radio" name="emailStatus" ng-model="emailStatus" ng-value="false">
+				      <div class="col-lg-12 md-8 sm-8">
+				        <input type="button" ng-click="changeMailStatus()" id="emailButton" class="btn btn-primary" value="Save Changes">
+	            </div>
+	          </div>
+	        </form>
+	      </div>
+	<hr>
+</div>

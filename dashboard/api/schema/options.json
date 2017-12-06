@@ -1,0 +1,6 @@
+{
+  "Jira": "Boolean",
+  "Bitbucket": "Boolean",
+  "facebook": "Boolean",
+  "twitter": "Boolean"
+}

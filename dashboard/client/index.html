@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ADFinder">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>XFinder - 99XT</title>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
+
+    <!-- CSS -->
+    <link href="app.css" rel="stylesheet">
+    <link href="../node_modules/font-awesome/css/font-awesome.css">
+    <link href="../node_modules/bootswatch/flatly/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../node_modules/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
+
+    <!--Data Table Resources-->
+    <link href="../node_modules/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/datatables-buttons/css/buttons.bootstrap.scss" rel="stylesheet" >
+    <link href="../node_modules/datatables-buttons/css/buttons.dataTables.scss" rel="stylesheet" >
+    <link href="../node_modules/datatables-buttons/css/buttons.jqueryui.scss" rel="stylesheet" >
+    <link href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css" rel="stylesheet" >
+
+    <!--<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../node_modules/angular-datatables/dist/css/angular-datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./node_modules/sweetalert/dist/sweetalert.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="wrapper" ng-controller="indexCtrl">
+
+        <!-- Sidebar -->
+
+        <div ng-include="addSideBar()"></div>
+
+        <!-- /#sidebar-wrapper -->
+
+        <nav class="navbar navbar-inverse">
+            
+                    <a class="btn btn-default navbar-btn pull-left" href="#menu-toggle" id="menu-toggle">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                    </a>
+
+
+                    <div class="navbar-header">
+
+                         <img class="navbar-brand" style="height:100px; width:200px;" src="https://s31.postimg.org/s9vl41l6j/XFInder.png" alt="logo" >
+<!--                      //  <a class="navbar-brand" href="#/">Active Directory Users</a>-->
+                    </div>
+             
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a ng-show="isLoggedIn" ng-click="goBack()" class="btn btn-default navbar-btn pull-left" href="#windowBack" id="back-toggle">
+                    <span class="glyphicon glyphicon-chevron-left">Back</span>
+                </a>
+                <br>
+                <br class="row">
+
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        
+        $("#wrapper").toggleClass("toggled");
+    });
+
+
+
+
+    </script>
+
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/buttons.bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/buttons.jqueryui.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/buttons.colVis.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/buttons.flash.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/buttons.html5.js"></script>
+    <script type="text/javascript" src="../node_modules/datatables-buttons/js/buttons.print.js"></script>
+    <script type="text/javascript" src="bundle.js"></script>
+
+</body>
+
+</html>

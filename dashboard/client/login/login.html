@@ -1,0 +1,17 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+    <form name="form" ng-submit="vm.login()" role="form">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="ad.username" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="ad.password" required />
+            <span ng-show="serverError" class="help-block">invalid credentials, please check again !</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" ng-click="submit()">Login</button>
+        </div>
+    </form>
+</div>

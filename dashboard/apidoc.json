@@ -1,0 +1,13 @@
+{
+  "name": "Active Directory Access API",
+  "version": "0.1.0",
+  "description": "API documentation",
+  "header": {
+    "title": "Active Directory Access REST API",
+    "filename": "header.md"
+  },
+  "footer": {
+    "title": "© 99x Technology",
+    "filename": "footer.md"
+  }
+}
